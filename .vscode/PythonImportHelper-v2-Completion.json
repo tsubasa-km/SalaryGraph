@@ -1,0 +1,134 @@
+[
+    {
+        "label": "Credentials",
+        "importPath": "google.oauth2.service_account",
+        "description": "google.oauth2.service_account",
+        "isExtraImport": true,
+        "detail": "google.oauth2.service_account",
+        "documentation": {}
+    },
+    {
+        "label": "gspread",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "gspread",
+        "description": "gspread",
+        "detail": "gspread",
+        "documentation": {}
+    },
+    {
+        "label": "streamlit",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "streamlit",
+        "description": "streamlit",
+        "detail": "streamlit",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
+        "label": "gsp",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "gsp",
+        "description": "gsp",
+        "detail": "gsp",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "FuncFormatter",
+        "importPath": "matplotlib.ticker",
+        "description": "matplotlib.ticker",
+        "isExtraImport": true,
+        "detail": "matplotlib.ticker",
+        "documentation": {}
+    },
+    {
+        "label": "japanize_matplotlib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "japanize_matplotlib",
+        "description": "japanize_matplotlib",
+        "detail": "japanize_matplotlib",
+        "documentation": {}
+    },
+    {
+        "label": "calendar",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "calendar",
+        "description": "calendar",
+        "detail": "calendar",
+        "documentation": {}
+    },
+    {
+        "label": "get_cell",
+        "kind": 2,
+        "importPath": "gsp",
+        "description": "gsp",
+        "peekOfCode": "def get_cell(url: str, work_sheet: gspread.worksheet.Worksheet, cell_name: str) -> (str | None):\n    try:\n        sheet = gc.open_by_url(url)\n        ws = sheet.worksheet(work_sheet)\n        cell = ws.acell(cell_name)\n        return cell.value\n    except Exception as e:\n        print(e)\n        return None\ndef get_range(url: str, work_sheet: gspread.worksheet.Worksheet, cell_range: str) -> (list[str] | None):",
+        "detail": "gsp",
+        "documentation": {}
+    },
+    {
+        "label": "get_range",
+        "kind": 2,
+        "importPath": "gsp",
+        "description": "gsp",
+        "peekOfCode": "def get_range(url: str, work_sheet: gspread.worksheet.Worksheet, cell_range: str) -> (list[str] | None):\n    try:\n        sheet = gc.open_by_url(url)\n        ws = sheet.worksheet(work_sheet)\n        cell = ws.range(cell_range)\n        return [c.value for c in cell]\n    except Exception as e:\n        print(e)\n        return None",
+        "detail": "gsp",
+        "documentation": {}
+    },
+    {
+        "label": "scopes",
+        "kind": 5,
+        "importPath": "gsp",
+        "description": "gsp",
+        "peekOfCode": "scopes = [\n    'https://www.googleapis.com/auth/spreadsheets',\n    'https://www.googleapis.com/auth/drive'\n]\ncredentials = Credentials.from_service_account_file(\n    \"./salarymanager-443604-b206893ec6fb.json\",\n    scopes=scopes\n)\ngc = gspread.authorize(credentials)\ndef get_cell(url: str, work_sheet: gspread.worksheet.Worksheet, cell_name: str) -> (str | None):",
+        "detail": "gsp",
+        "documentation": {}
+    },
+    {
+        "label": "credentials",
+        "kind": 5,
+        "importPath": "gsp",
+        "description": "gsp",
+        "peekOfCode": "credentials = Credentials.from_service_account_file(\n    \"./salarymanager-443604-b206893ec6fb.json\",\n    scopes=scopes\n)\ngc = gspread.authorize(credentials)\ndef get_cell(url: str, work_sheet: gspread.worksheet.Worksheet, cell_name: str) -> (str | None):\n    try:\n        sheet = gc.open_by_url(url)\n        ws = sheet.worksheet(work_sheet)\n        cell = ws.acell(cell_name)",
+        "detail": "gsp",
+        "documentation": {}
+    },
+    {
+        "label": "gc",
+        "kind": 5,
+        "importPath": "gsp",
+        "description": "gsp",
+        "peekOfCode": "gc = gspread.authorize(credentials)\ndef get_cell(url: str, work_sheet: gspread.worksheet.Worksheet, cell_name: str) -> (str | None):\n    try:\n        sheet = gc.open_by_url(url)\n        ws = sheet.worksheet(work_sheet)\n        cell = ws.acell(cell_name)\n        return cell.value\n    except Exception as e:\n        print(e)\n        return None",
+        "detail": "gsp",
+        "documentation": {}
+    }
+]
