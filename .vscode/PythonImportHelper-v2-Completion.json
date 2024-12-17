@@ -109,7 +109,7 @@
         "kind": 5,
         "importPath": "gsp",
         "description": "gsp",
-        "peekOfCode": "scopes = [\n    'https://www.googleapis.com/auth/spreadsheets',\n    'https://www.googleapis.com/auth/drive'\n]\ncredentials = Credentials.from_service_account_file(\n    \"./salarymanager-443604-b206893ec6fb.json\",\n    scopes=scopes\n)\ngc = gspread.authorize(credentials)\ndef get_cell(url: str, work_sheet: gspread.worksheet.Worksheet, cell_name: str) -> (str | None):",
+        "peekOfCode": "scopes = [\n    'https://www.googleapis.com/auth/spreadsheets',\n    'https://www.googleapis.com/auth/drive'\n]\ncredentials = Credentials.from_service_account_info(\n    st.secrets[\"gcp_service_account\"],\n    scopes=scopes\n)\ngc = gspread.authorize(credentials)\ndef get_cell(url: str, work_sheet: gspread.worksheet.Worksheet, cell_name: str) -> (str | None):",
         "detail": "gsp",
         "documentation": {}
     },
@@ -118,7 +118,7 @@
         "kind": 5,
         "importPath": "gsp",
         "description": "gsp",
-        "peekOfCode": "credentials = Credentials.from_service_account_file(\n    \"./salarymanager-443604-b206893ec6fb.json\",\n    scopes=scopes\n)\ngc = gspread.authorize(credentials)\ndef get_cell(url: str, work_sheet: gspread.worksheet.Worksheet, cell_name: str) -> (str | None):\n    try:\n        sheet = gc.open_by_url(url)\n        ws = sheet.worksheet(work_sheet)\n        cell = ws.acell(cell_name)",
+        "peekOfCode": "credentials = Credentials.from_service_account_info(\n    st.secrets[\"gcp_service_account\"],\n    scopes=scopes\n)\ngc = gspread.authorize(credentials)\ndef get_cell(url: str, work_sheet: gspread.worksheet.Worksheet, cell_name: str) -> (str | None):\n    try:\n        sheet = gc.open_by_url(url)\n        ws = sheet.worksheet(work_sheet)\n        cell = ws.acell(cell_name)",
         "detail": "gsp",
         "documentation": {}
     },

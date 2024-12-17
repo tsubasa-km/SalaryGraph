@@ -17,12 +17,21 @@ if 'sheet_name' not in st.query_params:
 if 'work_times_range' not in st.query_params:
     st.query_params.work_times_range = ''
 if 'salary_per_hour' not in st.query_params:
-    st.query_params.salary_per_hour = 0
+    st.query_params.salary_per_hour = 1000
 if 'target_salary' not in st.query_params:
-    st.query_params.target_salary = 0
+    st.query_params.target_salary = 100000
 
 if 'settings_expanded' not in st.session_state:
     st.session_state.settings_expanded = True
+
+with st.expander("使い方", expanded=st.session_state.settings_expanded):
+    c1, c2 = st.columns([0.8, 0.4])
+    c1.markdown('''
+        `salary-manager@salarymanager-443604.iam.gserviceaccount.com`
+        
+        にGoogle Spreadsheetの閲覧権限を付与してください。
+    ''')
+    c2.image("./imgs/howto1.png", caption="閲覧権限の付与")
 
 with st.expander("パラメーター設定", expanded=st.session_state.settings_expanded):
     spreadsheet_url = st.text_input(label='Google Spreadsheet URL',
@@ -33,7 +42,7 @@ with st.expander("パラメーター設定", expanded=st.session_state.settings_
                                value=st.query_params.sheet_name)
     # 日ごとの勤務時間
     work_times_range = st.text_input(label='勤務時間の範囲',
-                                     placeholder='A1:Alast_day',
+                                     placeholder='A1:A31',
                                      value=st.query_params.work_times_range)
     salary_per_hour = st.number_input(
         label='時給', value=int(st.query_params.salary_per_hour), step=100, placeholder=1000)
