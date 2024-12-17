@@ -24,7 +24,7 @@ if 'target_salary' not in st.query_params:
 if 'settings_expanded' not in st.session_state:
     st.session_state.settings_expanded = True
 
-with st.expander("使い方", expanded=st.session_state.settings_expanded):
+with st.expander("使い方", expanded=False):
     c1, c2 = st.columns([0.8, 0.4])
     c1.markdown('''
         `salary-manager@salarymanager-443604.iam.gserviceaccount.com`
